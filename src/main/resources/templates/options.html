@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="sGom">
+    <title>Welcome page</title>
+</head>
+<body>
+<div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <div class="row" th:object="${coffee}">
+            <h1 th:text="${coffee.korName}">커피 이름</h1>
+            <div class="row" th:object="${options}">
+                <form th:action="'/coffees/' + ${coffee.id} + '/options/form'" th:method="post">
+                    <div th:each="option : ${options}">
+                        <label th:for="${option.id}" class="name col-2" th:text="${option.korName}" style="display: inline-block">옵션 이름1</label>
+                        <input type="number" value=0 th:id="${option.id}" th:name=${option.id} min=0 required>
+                    </div>
+                    <hr/>
+                    <div style="margin-top: 10px">
+                        <label for="coffee-quantity" class="name col-2" style="display: inline-block">커피 수량</label>
+                        <input type="number" value=1 id="coffee-quantity" name="coffeeQuantity" min=1 required>
+                    </div>
+                    <hr/>
+                    <div class="col-lg-1 col-md-3 col-sm-12 p-0">
+                        <button type="submit" class="btn btn-base">담기</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

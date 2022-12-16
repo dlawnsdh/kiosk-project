@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko" >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="sGom">
+  <title>Welcome page</title>
+</head>
+<body>
+  <div class="container" th:object="${coffees}">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+      <div class="row">
+        <table class="table" id="article-table">
+          <tbody th:each="coffee : ${coffees}">
+          <tr>
+            <!--<th class="image col-6"><a th:text="${coffee.img}" th:href="@{'/coffees/' + ${coffee.id}}">커피 이미지1</a></th>-->
+            <th class="name col-2"><a th:text="${coffee.korName}" th:href="@{'/coffees/' + ${coffee.id}}">커피 이름1</a></th>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
