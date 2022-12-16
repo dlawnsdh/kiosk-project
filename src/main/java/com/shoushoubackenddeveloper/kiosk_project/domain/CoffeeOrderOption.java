@@ -15,7 +15,7 @@ public class CoffeeOrderOption {
     private Long id;
 
     @Setter @ManyToOne(optional = false)
-    private Option option;
+    private Option option = new Option();
 
     @Setter @ManyToOne(optional = false)
     private CoffeeOrder coffeeOrder;
